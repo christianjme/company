@@ -7,9 +7,15 @@ btnHamburger.addEventListener("click", (e) => {
 
 const linksNavigation = [...document.querySelectorAll(".nav__link")];
 
+function goToSection(section){
+  section.scrollIntoView({behavior: 'smooth'})
+}
+
 linksNavigation.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+    const section = document.querySelector(e.target.attributes.href.value)
+    goToSection(section)
     navigation.classList.add("hidden");
   });
 });
